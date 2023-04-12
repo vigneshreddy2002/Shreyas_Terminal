@@ -1,0 +1,62 @@
+
+.article{
+    margin: 3rem 0;
+
+}
+.post-wrapper{
+    width: 100%;
+
+}
+.loading{
+    font-size: '2.4rem';
+    color:rgba(246, 241, 241, 0.839);
+    font-weight:"bold" ;
+}
+
+.codepart{
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+  
+.contents{
+    margin-left: 1.5rem;
+    margin-top: 0rem;
+}
+.icon_everything{
+    width: 20px;
+    height: 20px;
+    color: rgba(246, 241, 241, 0.839);
+}
+
+.markdown{
+    margin: 2rem;
+    line-height: 1.5;
+   
+}
+
+.h1{
+    color: black;
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 2;
+    margin-left: 0rem;
+}
+.h2{
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 3;
+    margin-left: 0rem;
+
+}
+.h3{
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 2;
+    
+}
+
