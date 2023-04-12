@@ -4,24 +4,22 @@ import "../styles/Terminal.css"
 
 const Terminal = ({c,sclr}:any) => {
 // const xtermRef = useRef<any>(null)
-
 const terminalRef = useRef<HTMLDivElement | null>(null);
 const [command, setCommand] = useState("");
 const [output, setOutput] = useState("$");
 const [prompt, setPrompt] = useState("");
 const [commandHistory, setCommandHistory] = useState<string[]>([]);
-// const [labelColor, setLabelColor] = useState("");
+const [labelColor, setLabelColor] = useState("");
 const headerDisplayed = useRef(false);
 
-const terminalRef1 = useRef<HTMLButtonElement | null>(null);
 const ws = useRef<WebSocket | null>(null);
 const commandIndex = useRef<number>(-1);
-// const radioStyle = {
-// backgroundColor: labelColor,
-// padding: "10px",
-// borderRadius: "50%",
-// display: "inline-block"
-// };
+const radioStyle = {
+backgroundColor: labelColor,
+padding: "10px",
+borderRadius: "50%",
+display: "inline-block"
+};
 
 let cancel = false; // Flag to cancel the stream if the user presses Ctrl+C
 /* useEffect(() => {
@@ -29,14 +27,19 @@ let cancel = false; // Flag to cancel the stream if the user presses Ctrl+C
 xtermRef.current.terminal.writeln("Hello, World!")
 }, [])*/
 useEffect(() => 
-{
-    
+{ 
 const setupWebSocket = () => {
 ws.current = new WebSocket("ws://localhost:8080");
 
 ws.current.onopen = () => {
 console.log("WebSocket connection established.");
 cancel = false; // reset the flag
+if (c) {
+console.log(c);
+handleSubmit();
+console.log("ok");
+} 
+
 };
 
 ws.current.onmessage = (event) => {
@@ -48,18 +51,18 @@ return; // Stop the stream if the flag is set
 let pingCommandExecuted = false;
 
 if (message.command.startsWith("ping")) {
-    //setOutput((prevOutput) => prevOutput+ "$"+ message.command + "\n");
-    const lines = message.output.split("\n");
-    for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-    if (line.startsWith("PING") && !headerDisplayed.current) {
-    setOutput((prevOutput) => prevOutput+ line + "\n");
-    headerDisplayed.current = true;
-    } else if (line.startsWith("64 bytes")) {
-    setOutput((prevOutput) => prevOutput + line + "\n");
-    }
-    }
-    }
+//setOutput((prevOutput) => prevOutput+ "$"+ message.command + "\n");
+const lines = message.output.split("\n");
+for (let i = 0; i < lines.length; i++) {
+const line = lines[i].trim();
+if (line.startsWith("PING") && !headerDisplayed.current) {
+setOutput((prevOutput) => prevOutput+ line + "\n");
+headerDisplayed.current = true;
+} else if (line.startsWith("64 bytes")) {
+setOutput((prevOutput) => prevOutput + line + "\n");
+}
+}
+}
 else if (message.command.startsWith("wget")) {
 // If the command is wget, update the progress in the same line
 setOutput((prevOutput) => {
@@ -87,7 +90,7 @@ return lines.join("\n");
 });
 } else {
 // For other commands, display the command and output in different lines
-setOutput((prevOutput) => prevOutput + `${message.command}\n${message.output}\n$`);
+setOutput((prevOutput) => prevOutput + `${message.command}\n${message.output}\n\n$`);
 }
 setPrompt("");
 scrollToBottom();
@@ -147,32 +150,31 @@ setPrompt("$");
 }
 };
 window.addEventListener("keydown", handleWindowKeyDown);
+
 return () => 
 {
 window.removeEventListener("keydown", handleWindowKeyDown);
 ws.current?.close();
 };
 
+}, [c]);
 
-
-}, []);
-
-const handleSubmit = () => 
-{
-// event.preventDefault();
-
+//const handleSubmit = (event?: React.FormEvent) => {
+const handleSubmit = () => { 
+//event?.preventDefault();
 if (ws.current) 
 {
-    console.log(c)
-    console.log("In Handleclick")
+//ws.current.send(JSON.stringify(command));
+console.log("checked"+c);
 ws.current.send(JSON.stringify(c));
-// setCommandHistory([...commandHistory, c]);
-// setPrompt(c);
+//setCommandHistory([...commandHistory, command]);
+//setPrompt(command);
+setCommandHistory([...commandHistory, c]);
+setPrompt(c);
 scrollToBottom();
 commandIndex.current = -1; // Reset commandIndex when a new command is submitted
 }
-// setCommand("");
-
+setCommand("");
 };
 
 const handleCommandClick = (clickedCommand: string) => 
@@ -188,40 +190,26 @@ terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
 }
 };
 
-
-
-
-    // handleSubmit();
 return (
 
- <div> 
-   <> {handleSubmit()}</>
-{/* <div className="firstPart">
+<div>
+<div className="firstPart">
 <label>
 <span style={radioStyle}><input type="radio" name="color" value={labelColor} /></span>
 </label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="http://localhost:3000/">Click to view Graph</a>
-</div> */}
+</div>
 
-{/* <div className="firstPart">
- <form onSubmit={handleSubmit}> */}
-{/* <button onClick={handleSubmit}>➤</button> */}
-{/* <input
-type="text"
-value={command}
-onChange={(event) => setCommand(event.target.value)}
-autoFocus
-required // add required attribute to prevent submitting empty input
-pattern="\" // add pattern attribute to prevent submitting only whitespace
-/> */}
-{/* </form> 
-</div> */}
-<div ref={terminalRef} className="terminal"/>
+<div className="firstPart">
+
+</div>
+<div ref={terminalRef} className="terminal">
 {output && <pre>{output}</pre>}
-
+</div>
 </div>
 );
 }
 
 export default Terminal
+
