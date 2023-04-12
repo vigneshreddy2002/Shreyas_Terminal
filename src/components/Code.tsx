@@ -193,7 +193,7 @@ const CodeBlock = ({className,children}:any) => {
   }
   function cclr(event:any)
   {
-    event.currentTarget.style.color="green"
+    event.currentTarget.style.color=clr1
     console.log(event.currentTarget)
   }
   return (
