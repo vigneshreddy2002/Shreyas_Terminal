@@ -1,8 +1,8 @@
 # Terminal Emulator using React Typescript and Nodejs 
 
-This is a React Typescript Nodejs program combination, wherein the frontend sends the commands to backend Nodejs program and sends the results of the command execution to the front end. This uses the websocket programming as a two way communication between the server and the client.
+This is a React Typescript Nodejs program combination, wherein the frontend sends the commands to backend Nodejs program and returns the results of the command execution to the front end. This uses the websocket programming as a two way communication between the server and the client.
 
-The two files used for communication are Terminal.tsx (Frontend part, available under /src/components) and Server.ts (Available in the folder Shreyasbackend). Install Visual Studio code editor(Optional)
+The two files used for communication are Terminal.tsx (Frontend part, available under /src/components) and Server.ts (Available in the folder Shreyasbackend). Install Visual Studio code editor for amendments(Optional)
 
 Steps for installation of backend server:
 
