@@ -8,8 +8,8 @@ Steps for installation of backend server:
 
 1. Create a separate directory for backend and run the following commands to install nodejs dependencies
 2. sudo apt update && upgrade
-3. sudo apt install nodejs
-4. sudo apt install npm
+3. sudo apt install nodejs (Tested with Nodejs version v18.7.0)
+4. sudo apt install npm (Tested with npm version 9.4.2)
 5. npm install express 
 6. npm install cors
 7. npm install http
@@ -28,10 +28,10 @@ Steps for installation of backend server:
 
 The above commands are also available as script file i.e., steps.sh (in the folder Shreyasbackend).
 
-15. This project has an extension to database connectivity. The commands along with status are being stored in mongodb (Mongodb to be installed with default port and a database with name "datas" to be created). At present, the connectivity to database is removed in server.ts file. Soon, it would be added along with the pie chart representation for data analytics.
+15. This project has an extension to database connectivity. The commands along with status are being stored in mongodb (This project uses Mongodb community edition{version 5.0.14} with default port(27017) and a database with name "tesdb" and collection name as "datas". Aditionally, one can also install MongoDB compass as a frontend tool for database operations). At present, the connectivity to database is removed in server.ts file. Soon, it would be added along with the pie chart representation for data analytics.
 
 
-# Getting Started with Create React App
+# General Instructions on Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
