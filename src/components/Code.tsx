@@ -17,6 +17,9 @@ import * as Suite from '@rsuite/icons';
 import '../styles/sidebar.css'
 // import { SidebarData } from './SidebarData';
 import Terminal from './Terminal';
+import {TiTickOutline} from 'react-icons/ti'
+import {RxCrossCircled} from 'react-icons/rx'
+
 
 var cmd1:any;
 var c:any;
@@ -30,7 +33,7 @@ var comp:any[]=[]
 var chi=0,ch=0,h22=0;
 var count_h2 = 0
 var count_li = 0
-
+let element:any;
 var cmd1:any;
 var clr1:any
 
@@ -184,30 +187,24 @@ const CodeBlock = ({className,children}:any) => {
   console.log(Children_li)
 
     
-  function fcmd()
+  function fcmd(event:any)
   {
     // console.log(children)
-    
     cmd1(children);
 
   }
-  function cclr(event:any)
-  {
-    event.currentTarget.style.color=clr1
-    console.log(event.currentTarget)
-  }
+ 
+
   return (
     <>
     
     <div className='codepart'>
     <div style={{margin: '2rem'}}>
-    <div >{ !isActive? <><FiIcons.FiPlay  onClick={() => {
-            setIsActive(!isActive); Set_True();fcmd();count_li=0;
-          } } style={{ fontSize: '1.2rem', color: "grey", fontWeight: "bold"  }} /></>:<><Suite.Reload spin 
-          style={{ fontSize: '1.2rem' }} 
-          color="darkgoldenrod" onClick={(event) => {
-              IconControlGreen(); count_li--;cclr(event)
-          } } /></>}
+    <div >{ !isActive? <><FiIcons.FiPlay  onClick={(event) => {
+            setIsActive(!isActive); Set_True();fcmd(event);count_li=0;
+          } } style={{ fontSize: '1.2rem', color: "grey", fontWeight: "bold"  }} /></>:
+          <>{(clr1=='green')? <TiTickOutline color='green'/>:<RxCrossCircled color='red'/>}
+          </>}
     </div>
     
     </div>
@@ -254,7 +251,6 @@ const PreBlock = ({children, ...rest}:any) => {
 // }
 const Code = ({content,cmd,clr}:any) => {
   const [postContent, setPostContent] = useState("");
-  console.log(clr)
 // console.log(postContent)
   useEffect(() => {
     const set=async()=>{
@@ -267,11 +263,12 @@ const Code = ({content,cmd,clr}:any) => {
     set();
 
   }, [])
-  
+  clr1=clr
+  cmd1=cmd
   return (
     <>
-    {cmd1=cmd}
-    { clr1=clr}
+    {/* {cmd1=cmd}
+    {clr1=clr} */}
     <div className='markdown'>
     
     <Markdown options={{

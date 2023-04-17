@@ -1,0 +1,16 @@
+.terminal{
+   display:flex-end;
+   width: 100%;
+   background-color: black;
+   color: white;
+   font-family: 'Arial Narrow';
+   font-size: 14px;
+   height: 315px;
+   position: fixed;
+   top: 570px;
+   left: 350px;
+   padding: 16px;
+   overflow-x: auto; /* Horizontal scroll bar */
+   overflow-y: auto; /* Vertical scroll bar */
+   max-height: 315px; /* Set a maximum height for the element */
+}
