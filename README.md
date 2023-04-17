@@ -1,3 +1,5 @@
+# Terminal Emulator using React Typescript and Nodejs 
+
 This is a React Typescript Nodejs program combination, wherein the frontend sends the commands to backend Nodejs program and sends the results of the command execution to the front end. This uses the websocket programming as a two way communication between the server and the client.
 
 The two files used for communication are Terminal.tsx (Frontend part, available under /src/components) and Server.ts (Available in the folder Shreyasbackend). Install Visual Studio code editor(Optional)
@@ -26,7 +28,7 @@ Steps for installation of backend server:
 
 The above commands are also available as script file i.e., steps.sh (in the folder Shreyasbackend).
 
-15. This project has an extension to database connectivity. The commands along with status are being stored in mongodb (Mongodb to be installed with default port and a database with name "datas" to be created). At present, the connectivity to database are removed in server.ts file. Soon, it would be added along with the pie chart representation for data analytics.
+15. This project has an extension to database connectivity. The commands along with status are being stored in mongodb (Mongodb to be installed with default port and a database with name "datas" to be created). At present, the connectivity to database is removed in server.ts file. Soon, it would be added along with the pie chart representation for data analytics.
 
 
 # Getting Started with Create React App
