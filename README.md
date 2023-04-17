@@ -1,6 +1,6 @@
 This is a React Typescript Nodejs program combination, wherein the frontend sends the commands to backend Nodejs program and sends the results of the command execution to the front end. This uses the websocket programming as a two way communication between the server and the client.
 
-The two files used for communication are Terminal.tsx (Frontend part, available under /src/components) and Server.ts (Available in the folder Shreyasbackend)
+The two files used for communication are Terminal.tsx (Frontend part, available under /src/components) and Server.ts (Available in the folder Shreyasbackend). Install Visual Studio code editor(Optional)
 
 Steps for installation of backend server:
 
@@ -13,8 +13,16 @@ Steps for installation of backend server:
 7. npm install http
 8. npm install ws
 9. npm install child_process
-
-
+10. npm install nodemon --save-dev
+11. npm install mongodb
+12. npm install mongoose
+13. After installation, using an editor check whether package.json contains the following code part (Add the "dev" part, if not available).
+ "scripts": {
+    "start": "node server.ts",
+    "dev": "nodemon server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+14. run the server side using the command (npm run dev) and from the client side(npm start)
 
 
 
