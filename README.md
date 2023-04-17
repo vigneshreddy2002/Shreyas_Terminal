@@ -1,3 +1,11 @@
+This is a React Typescript Nodejs program combination, wherein the frontend sends the commands to backend Nodejs program and sends the results of the command execution to the front end. 
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
