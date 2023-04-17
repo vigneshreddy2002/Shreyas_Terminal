@@ -46,35 +46,3 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 
-For running the backend using nodejs follow these steps:
-1.Go to the directory in which u have cloned the backend
-
-2.Run the following commands in the terminal
-
-3.Install nodejs using the following commands:
-sudo apt update
-
-sudo apt install nodejs
-
-sudo apt install npm
-
-Then run the following commands
-
-4.npm init -y
-
-5.npm install express cors
-
-6.npm install nodemon --save-dev
-
-7.npm i mongodb
-
-8.npm i express mongoose
-
-9.Install MongoDB compass in your system
-
-10.Create a database named testdb and collection named datas in it
-
-11.Start the database using sudo service mongod start
-
-12.Finally for execution use npm run dev
-
