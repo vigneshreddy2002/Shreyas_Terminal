@@ -24,7 +24,9 @@ Steps for installation of backend server:
   }
 14. run the server side using the command (npm run dev) and from the client side(npm start)
 
+The above commands are also available as script file i.e., steps.sh (in the folder Shreyasbackend).
 
+15. This project has an extension to database connectivity. The commands along with status are being stored in mongodb (Mongodb to be installed with default port and a database with name "datas" to be created). At present, the connectivity to database are removed in server.ts file. 
 
 
 # Getting Started with Create React App
