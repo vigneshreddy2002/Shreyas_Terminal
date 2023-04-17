@@ -26,7 +26,7 @@ Steps for installation of backend server:
 
 The above commands are also available as script file i.e., steps.sh (in the folder Shreyasbackend).
 
-15. This project has an extension to database connectivity. The commands along with status are being stored in mongodb (Mongodb to be installed with default port and a database with name "datas" to be created). At present, the connectivity to database are removed in server.ts file. 
+15. This project has an extension to database connectivity. The commands along with status are being stored in mongodb (Mongodb to be installed with default port and a database with name "datas" to be created). At present, the connectivity to database are removed in server.ts file. Soon, it would be added along with the pie chart representation for data analytics.
 
 
 # Getting Started with Create React App
